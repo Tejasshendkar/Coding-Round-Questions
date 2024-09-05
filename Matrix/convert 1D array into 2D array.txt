@@ -1,0 +1,34 @@
+
+
+class Solution {
+    public int[][] construct2DArray(int[] original, int m, int n) {
+        
+        if(original.length!=m*n){
+            int mat[][]=new int[0][0];
+            return mat;
+        }else{
+            int matrix[][]=new int[m][n];
+            int k=0;
+            while(k<m*n){
+            for(int i=0;i<m;i++){
+                for(int j=0;j<n;j++){
+                    matrix[i][j]=original[k++];
+                }
+            }
+           
+            }
+            return matrix;
+        }
+    }
+}
+
+--------------------------------------------------------------
+Input
+original = [1,2,3,4]
+m =2
+n =2
+______________
+Output
+[[1,2],[3,4]]
+Expected
+[[1,2],[3,4]]

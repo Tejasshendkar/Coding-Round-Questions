@@ -1,0 +1,194 @@
+arrange the string in ascending order by using Ascii value of each character
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+     Scanner sc=new Scanner(System.in);
+     System.out.println("enter the size of string ");
+     int size=sc.nextInt();
+     
+     System.out.println("enter the String of mentioned size");
+     String str=sc.next();
+     
+     int asciiValue[]=new int [size];
+     char charArray[]=str.toCharArray();
+     for(int i=0;i<size;i++){
+        asciiValue[i]=Character.valueOf(str.charAt(i));
+     }
+     for(int i=0;i<size;i++){
+        if( asciiValue[i]%2==0 ){
+            asciiValue[i]= asciiValue[i]+20; 
+        } else{
+             asciiValue[i]= asciiValue[i]*2;
+        }
+     }
+    
+     
+     for(int i=0;i<size;i++){
+      for(int j=0;j<size-1;j++){
+        if(asciiValue[j]>asciiValue[j+1]){
+          int temp =asciiValue[j];
+          asciiValue[j]=asciiValue[j+1];
+          asciiValue[j+1]=temp;
+          
+          char ch=charArray[j];
+          charArray[j]=charArray[j+1];
+          charArray[j+1]=ch;
+        }
+      }
+    }
+    
+      for(int i=0;i<size;i++){
+       System.out.print(charArray[i]);
+     }
+  }
+}
+
+-------------------
+OUTPUT=
+
+enter the size of string 
+10
+enter the String of mentioned size
+5ASD12ASDA
+
+ 
+2DD15AAASS
+
+_________________________________________________________________________________________________________________________________________
+
+FIND THE REQUIRED FREQUENCY OF NUMBER IN GIVEN ARRAY
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+     Scanner sc=new Scanner(System.in);
+     System.out.println("enter the frequency you want ");
+     int fr=sc.nextInt();
+     int frcount=0;
+     System.out.println("enter the size of array ");
+     int size=sc.nextInt();
+     int   c;
+     int arr[]=new int[size];
+     int freq[]=new int[size];
+     
+     System.out.println("enter the array of mentioned size");
+      for(int i=0;i<arr.length;i++){
+            arr[i]=sc.nextInt();
+         }
+       
+       for(int i=0;i<arr.length;i++){
+           c=1;
+           for(int j=i+1;j<arr.length;j++){
+               if(arr[i]==arr[j]){
+                   c++;
+                   freq[j]=-1;
+               }
+           }
+           if(freq[i]!=-1){
+               freq[i]=c;
+           }
+       } 
+         System.out.println("");
+         for(int i=0;i<arr.length;i++){
+             if(freq[i]!=-1){
+                System.out.println(arr[i]+" "+ freq[i]);
+                 if(freq[i]<fr){
+                     frcount+=fr-freq[i];
+                 }
+             }
+         }
+         System.out.println("frequency count need to add of all integers is "+ frcount);
+     
+  }
+}
+
+------------
+OUTPUT
+
+enter the frequency you want 
+3
+enter the size of array 
+6
+enter the array of mentioned size
+1 3 6 3 1 2
+
+1 2
+3 2
+6 1
+2 1
+frequency count need to add of all integers is 6
+
+=== Code Execution Successful ===
+
+_____________________________________________________________________________________________________________________________________________________________
+
+MATT AND JEMES BADDMINTON
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+     Scanner sc=new Scanner(System.in);
+     System.out.println("enter the round you want ");
+     int r=sc.nextInt();
+     int m=0,j=0;
+     System.out.println("enter the string ");
+     String str=sc.next();
+     
+    
+       
+       for(int i=0;i<str.length();i++){
+            if(m>=j){
+                if(str.charAt(i)=='W'){
+                    m++;
+                }else
+                {
+                    j++;
+                }
+            }else{
+                if(str.charAt(i)=='W'){
+                    j++;
+                }else
+                {
+                    m++;
+                }
+            }
+           }
+       
+         
+         System.out.println("final score  is "+ m+" "+j);
+     
+  }
+}
+
+-----------------
+OUTPUT
+
+enter the round you want 
+4
+enter the string 
+WLLW
+final score  is 1 3
+
+=== Code Execution Successful ===
+
+
+________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+

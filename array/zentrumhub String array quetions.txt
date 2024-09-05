@@ -1,0 +1,91 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       String stops[]={"Nashik","pune","Nashik","Loni","Shrirampur","pune","Belapur","Khandala"};
+       int max=0,count=0;
+       
+       for(int i=0;i<stops.length;i++){
+           HashSet<String> set=new HashSet<>();
+           count=0;
+           forloop:
+           for(int j=i;j<stops.length;j++){
+               if(!set.contains(stops[j])){
+                   set.add(stops[j]);
+                   //System.out.print(stops[j]+" ");
+                   count++;
+                   
+               }else{
+                   break forloop;
+               }
+              
+           }
+          // System.out.print(count);
+          //  System.out.println(set+"\n______________________________________________");
+           max=Math.max(max,count);
+       }
+       System.out.println(max-1);
+    }
+}
+
+________________________________________________________________________
+OUTPUT
+
+Nashik pune 2[pune, Nashik]
+______________________________________________
+pune Nashik Loni Shrirampur 4[pune, Shrirampur, Loni, Nashik]
+______________________________________________
+Nashik Loni Shrirampur pune Belapur Khandala 6[Belapur, Shrirampur, pune, Loni, Nashik, Khandala]
+______________________________________________
+Loni Shrirampur pune Belapur Khandala 5[Belapur, Shrirampur, pune, Loni, Khandala]
+______________________________________________
+Shrirampur pune Belapur Khandala 4[Belapur, Shrirampur, pune, Khandala]
+______________________________________________
+pune Belapur Khandala 3[Belapur, pune, Khandala]
+______________________________________________
+Belapur Khandala 2[Belapur, Khandala]
+______________________________________________
+Khandala 1[Khandala]
+______________________________________________
+  **** final output 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------
+ALSO HAVE THIS  SOLUTION                     ****************************************
+
+
+
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        String stops[] = {"Nashik", "pune", "Nashik", "Loni", "Shrirampur", "pune", "Belapur", "Khandala"};
+        int max = 0;
+        HashSet<String> set = new HashSet<>();
+        int i = 0, j = 0;
+
+        while (j < stops.length) {
+            if (!set.contains(stops[j])) {
+                set.add(stops[j]);
+                max = Math.max(max, j - i + 1);
+                j++;
+            } else {
+                set.remove(stops[i]);
+                i++;
+            }
+        }
+        System.out.println(max);
+    }
+}

@@ -1,0 +1,48 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+
+class HelloWorld {
+    public static HashMap<Integer,Integer>  frequency(int arr[]){
+         HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            if(map.containsKey(arr[i])){
+                map.put(arr[i],map.get(arr[i])+1);
+            }else{
+                map.put(arr[i],1);
+            }
+        }
+    //System.out.println("frequency of array \n"+map.entrySet());
+    return map;
+    }
+    
+     public static void addOfDistinct(int arr[]){
+          HashMap<Integer,Integer> map=frequency( arr);
+          int add=0;
+          for(int i=0;i<arr.length;i++){
+              if(map.get(arr[i])==1){
+                  add+=arr[i];
+              }
+          }
+          System.out.println("addition of distinct numbers in arrayis "+add);
+    } 
+    
+    
+    public static void main(String[] args) {
+        int arr[]={1,2,3,1,2,4,5,5};
+        //frequency(arr);
+        addOfDistinct(arr); 
+    }
+}
+
+
+
+
+
+
+-------------------------------------------------------
+fequency of array 
+{1=2, 2=2, 3=1, 4=1, 5=2}
+addition of distinct numbers in arrayis 7
+
+=== Code Execution Successful ===

@@ -1,0 +1,56 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the String");
+        String str=sc.nextLine();
+        char strarr[]=str.toCharArray();
+        int charfrq[]=new int[strarr.length];
+        for(int i=0;i<strarr.length;i++){
+            int frc=1;
+            for(int j=i+1;j<strarr.length;j++){
+                if(strarr[i]==strarr[j]){
+                    frc++;
+                    charfrq[j]=-1;
+                }
+            }
+            if(charfrq[i]!=-1){
+                charfrq[i]=frc;
+            }
+            
+        }
+        int max, min=max=charfrq[0];
+        char minchar=strarr[0],maxchar=strarr[0];
+        for(int i=0;i<strarr.length;i++){
+            
+                if(charfrq[i]<min && charfrq[i]!=-1){
+                    min=charfrq[i];
+                    minchar=strarr[i];
+                }
+               
+            
+            
+            if(charfrq[i]>max){
+                    max=charfrq[i];
+                    maxchar=strarr[i];
+                }
+        }
+        
+        System.out.println("min freq count char "+minchar);
+        System.out.println("max freq count char "+maxchar);
+        
+        
+    }
+}
+
+------------------------------------------------------------------
+
+enter the String
+tejass
+min freq count char t
+max freq count char s
+
+=== Code Execution Successful ===
